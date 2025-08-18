@@ -8,10 +8,9 @@ export default function RootLayout() {
   return (
     <Tabs
       screenOptions={{
-        headerShown: false,
         headerStyle: { shadowColor: "transparent" },
         tabBarActiveTintColor: "#f7601a",
-
+        headerTitleAlign: "center",
         tabBarInactiveTintColor: "#a7a7a7",
         tabBarLabelStyle: { fontWeight: "700" },
       }}
@@ -23,6 +22,7 @@ export default function RootLayout() {
           tabBarIcon: ({ color }) => (
             <Ionicons name="fast-food-outline" size={22} color={color} />
           ),
+          headerShown: false,
         }}
       />
       <Tabs.Screen

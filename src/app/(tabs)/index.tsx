@@ -57,8 +57,12 @@ const Index = () => {
 
       {/* Search bar */}
       <View style={styles.searchContainer}>
-        <Ionicons name="search" size={24} color="black" />
-        <TextInput placeholder="Search for" style={styles.searchInput} />
+        <Ionicons name="search" size={22} color="#d3d3d3" />
+        <TextInput
+          placeholder="Search for restaurants or foods"
+          placeholderTextColor="#d3d3d3"
+          style={styles.searchInput}
+        />
         <Feather name="mic" size={24} color="#ff5200" />
       </View>
 
