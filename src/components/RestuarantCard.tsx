@@ -1,5 +1,5 @@
 import { Restaurant } from "@/assets/data/Restuarants";
-import { Ionicons } from "@expo/vector-icons";
+import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import React from "react";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
@@ -18,7 +18,7 @@ const RestaurantCard = ({ restaurant, onPress }: Props) => {
         <Text style={styles.location}>{restaurant.location}</Text>
 
         <View style={styles.row}>
-          <Ionicons name="star" size={14} color="gold" />
+          <MaterialIcons name="stars" size={14} color="green" />
           <Text style={styles.rating}>{restaurant.rating} • </Text>
           <Text style={styles.time}>{restaurant.deliveryTime}</Text>
         </View>
@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   name: {
-    fontSize: 16,
+    fontSize: 18,
     fontWeight: "bold",
   },
   location: {

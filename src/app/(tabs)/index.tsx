@@ -76,7 +76,6 @@ const Index = () => {
               style={styles.categoryImage}
               resizeMode="cover"
             />
-            <Text style={styles.categoryText}>{category.name}</Text>
           </View>
         ))}
       </ScrollView>
@@ -159,25 +158,24 @@ const styles = StyleSheet.create({
     borderRightWidth: 0.4,
   },
   title: {
-    fontSize: 14,
+    fontSize: 16,
     fontWeight: "bold",
-    marginTop: 20,
+    marginVertical: 10,
   },
   whatOnYourMindContainer: {
     flexDirection: "row",
     marginTop: 10,
-    paddingBottom: 10,
-    height: 110,
+    height: 150,
   },
   categoryContainer: {
     alignItems: "center",
-    marginRight: 16,
+    gap: 14,
   },
   categoryImage: {
-    width: 60,
-    height: 60,
-    borderRadius: 50,
-    backgroundColor: "#fff",
+    width: 80,
+    height: 80,
+    // borderRadius: 50,
+    // backgroundColor: "#fff",
     elevation: 3, // Android shadow
     shadowColor: "#000",
     shadowOffset: { width: 0, height: 2 },
