@@ -1,4 +1,5 @@
 import Restaurants from "@/assets/data/Restuarants";
+import SearchBar from "@/src/components/SearchBar";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import { router, Stack, useLocalSearchParams } from "expo-router";
 import React from "react";
@@ -79,7 +80,9 @@ const RestuarentDetails = () => {
       </View>
 
       {/* Bottom Section */}
-      <View style={styles.bottomHalf} />
+      <View style={styles.bottomHalf}>
+        <SearchBar placeholder="Search for dishes..." />
+      </View>
 
       <StatusBar barStyle="light-content" backgroundColor="#000000" />
     </View>
@@ -189,6 +192,22 @@ const styles = StyleSheet.create({
   bottomHalf: {
     width: "100%",
     height: "58%",
-    backgroundColor: "#fff",
+    padding: 14,
+    backgroundColor: "#ffffff",
+  },
+
+  searchContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    backgroundColor: "#ffffff",
+    borderRadius: 12,
+    paddingHorizontal: 14,
+    paddingVertical: 4,
+    borderWidth: 0.3,
+  },
+  searchInput: {
+    flex: 1,
+    marginHorizontal: 10,
+    borderRightWidth: 0.4,
   },
 });

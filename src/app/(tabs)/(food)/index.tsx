@@ -2,9 +2,9 @@ import Categories from "@/assets/data/Categories";
 
 import Restaurants from "@/assets/data/Restuarants";
 import RestaurantCard from "@/src/components/RestuarantCard";
+import SearchBar from "@components/SearchBar";
 import Entypo from "@expo/vector-icons/Entypo";
 import Feather from "@expo/vector-icons/Feather";
-import Ionicons from "@expo/vector-icons/Ionicons";
 import { ResizeMode, Video } from "expo-av";
 import { LinearGradient } from "expo-linear-gradient";
 import React, { useRef } from "react";
@@ -14,7 +14,6 @@ import {
   Image,
   StyleSheet,
   Text,
-  TextInput,
   View,
 } from "react-native";
 import {
@@ -106,17 +105,7 @@ const HomeScreen = () => {
           </View>
         </View>
 
-        {/* Search bar */}
-        <View style={styles.searchContainer}>
-          <Ionicons name="search" size={22} color="#d3d3d3" />
-          <TextInput
-            placeholder="Search for restaurants or foods"
-            placeholderTextColor="#d3d3d3"
-            style={styles.searchInput}
-          />
-          <Feather name="mic" size={24} color="#ff5200" />
-        </View>
-
+        <SearchBar />
         {/* Video */}
         <View style={styles.videocontainer}>
           <Video
