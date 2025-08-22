@@ -1,5 +1,6 @@
 import { Restaurant } from "@/assets/data/Restuarants";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
+import { Link } from "expo-router";
 import React from "react";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
@@ -10,24 +11,26 @@ type Props = {
 
 const RestaurantCard = ({ restaurant, onPress }: Props) => {
   return (
-    <TouchableOpacity style={styles.card} onPress={onPress}>
-      <Image source={restaurant.image} style={styles.image} />
+    <Link href={`/${restaurant.id}`} asChild>
+      <TouchableOpacity style={styles.card} onPress={onPress}>
+        <Image source={restaurant.image} style={styles.image} />
 
-      <View style={styles.infoContainer}>
-        <Text style={styles.name}>{restaurant.name}</Text>
-        <Text style={styles.location}>{restaurant.location}</Text>
+        <View style={styles.infoContainer}>
+          <Text style={styles.name}>{restaurant.name}</Text>
+          <Text style={styles.location}>{restaurant.location}</Text>
 
-        <View style={styles.row}>
-          <MaterialIcons name="stars" size={14} color="green" />
-          <Text style={styles.rating}>{restaurant.rating} • </Text>
-          <Text style={styles.time}>{restaurant.deliveryTime}</Text>
+          <View style={styles.row}>
+            <MaterialIcons name="stars" size={14} color="green" />
+            <Text style={styles.rating}>{restaurant.rating} • </Text>
+            <Text style={styles.time}>{restaurant.deliveryTime}</Text>
+          </View>
+
+          {restaurant.discount && (
+            <Text style={styles.discount}>{restaurant.discount}</Text>
+          )}
         </View>
-
-        {restaurant.discount && (
-          <Text style={styles.discount}>{restaurant.discount}</Text>
-        )}
-      </View>
-    </TouchableOpacity>
+      </TouchableOpacity>
+    </Link>
   );
 };
 
@@ -37,7 +40,7 @@ const styles = StyleSheet.create({
   card: {
     backgroundColor: "#fff",
     borderRadius: 12,
-    marginVertical: 8,
+    marginVertical: 10,
     overflow: "hidden",
     shadowColor: "#000",
     shadowOpacity: 0.1,
