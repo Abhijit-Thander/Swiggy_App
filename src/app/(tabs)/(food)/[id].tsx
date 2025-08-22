@@ -6,6 +6,7 @@ import React from "react";
 import {
   Image,
   Pressable,
+  ScrollView,
   StatusBar,
   StyleSheet,
   Text,
@@ -16,7 +17,13 @@ const RestuarentDetails = () => {
   const { id } = useLocalSearchParams();
   const restaurant = Restaurants.find((r) => r.id === id);
 
-  if (!restaurant) return null;
+  if (!restaurant) {
+    return (
+      <View>
+        <Text>Restaurant not found</Text>
+      </View>
+    );
+  }
 
   return (
     <View style={styles.container}>
@@ -82,6 +89,26 @@ const RestuarentDetails = () => {
       {/* Bottom Section */}
       <View style={styles.bottomHalf}>
         <SearchBar placeholder="Search for dishes..." />
+
+        {/* Dishes */}
+        <ScrollView style={styles.dishes} showsVerticalScrollIndicator={false}>
+          {restaurant.dishes.map((dish) => (
+            <View key={dish.id} style={styles.dish}>
+              <View style={styles.dishInfo}>
+                <Text style={styles.dishName}>{dish.name}</Text>
+                <Text style={styles.dishPrice}>₹{dish.price}</Text>
+                <Text
+                  style={styles.dishDescription}
+                  lineBreakMode="tail"
+                  numberOfLines={2}
+                >
+                  {dish.description}
+                </Text>
+              </View>
+              <Image style={styles.dishImage} />
+            </View>
+          ))}
+        </ScrollView>
       </View>
 
       <StatusBar barStyle="light-content" backgroundColor="#000000" />
@@ -193,6 +220,7 @@ const styles = StyleSheet.create({
     width: "100%",
     height: "58%",
     padding: 14,
+    flex: 1,
     backgroundColor: "#ffffff",
   },
 
@@ -209,5 +237,40 @@ const styles = StyleSheet.create({
     flex: 1,
     marginHorizontal: 10,
     borderRightWidth: 0.4,
+  },
+  dishes: {
+    marginTop: 20,
+  },
+  dish: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginBottom: 20,
+    justifyContent: "space-between",
+  },
+  dishImage: {
+    width: 90,
+    height: 90,
+    borderRadius: 12,
+    overflow: "hidden",
+
+    backgroundColor: "#ccc",
+  },
+  dishInfo: {
+    marginLeft: 10,
+  },
+  dishName: {
+    fontSize: 16,
+    fontWeight: "bold",
+  },
+  dishPrice: {
+    fontSize: 14,
+    color: "#555",
+    marginTop: 4,
+    fontWeight: "600",
+  },
+  dishDescription: {
+    fontSize: 12,
+    color: "#555",
+    width: "90%",
   },
 });

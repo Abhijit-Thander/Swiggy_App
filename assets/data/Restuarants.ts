@@ -7,7 +7,7 @@ export type Restaurant = {
   discount?: string; // optional
   image: any;
   isVeg: boolean;
-  items: {
+  dishes: {
     id: string;
     name: string;
     description: string;
@@ -26,7 +26,7 @@ const Restaurants: Restaurant[] = [
     discount: "50% OFF",
     image: require("../images/restuarants/Pizza_place.avif"),
     isVeg: false,
-    items: [
+    dishes: [
       {
         id: "101",
         name: "Margherita Pizza",
@@ -41,6 +41,20 @@ const Restaurants: Restaurant[] = [
         price: 349,
         isVeg: false,
       },
+      {
+        id: "103",
+        name: "Veggie Pizza",
+        description: "Fresh veggies and cheese",
+        price: 299,
+        isVeg: true,
+      },
+      {
+        id: "104",
+        name: "Chicken Pizza",
+        description: "Crispy chicken and cheese",
+        price: 399,
+        isVeg: false,
+      },
     ],
   },
   {
@@ -51,7 +65,7 @@ const Restaurants: Restaurant[] = [
     deliveryTime: "25-35 mins",
     image: require("../images/restuarants/Burger_hub.avif"),
     isVeg: false,
-    items: [
+    dishes: [
       {
         id: "201",
         name: "Veggie Burger",
@@ -77,7 +91,7 @@ const Restaurants: Restaurant[] = [
     discount: "Flat ₹100 OFF",
     image: require("../images/restuarants/Biriyani_house.avif"),
     isVeg: false,
-    items: [
+    dishes: [
       {
         id: "301",
         name: "Chicken Biryani",
@@ -102,7 +116,7 @@ const Restaurants: Restaurant[] = [
     deliveryTime: "20-30 mins",
     image: require("../images/restuarants/chinese.avif"),
     isVeg: false,
-    items: [
+    dishes: [
       {
         id: "401",
         name: "Veg Hakka Noodles",
@@ -128,7 +142,7 @@ const Restaurants: Restaurant[] = [
     discount: "20% OFF",
     image: require("../images/restuarants/southindian.avif"),
     isVeg: true,
-    items: [
+    dishes: [
       {
         id: "501",
         name: "Masala Dosa",
@@ -153,7 +167,7 @@ const Restaurants: Restaurant[] = [
     deliveryTime: "30-40 mins",
     image: require("../images/restuarants/kabab.avif"),
     isVeg: false,
-    items: [
+    dishes: [
       {
         id: "601",
         name: "Chicken Seekh Kebab",
@@ -179,7 +193,7 @@ const Restaurants: Restaurant[] = [
     discount: "Buy 1 Get 1 Free",
     image: require("../images/restuarants/rolls_corner.avif"),
     isVeg: false,
-    items: [
+    dishes: [
       {
         id: "701",
         name: "Egg Chicken Roll",
@@ -204,7 +218,7 @@ const Restaurants: Restaurant[] = [
     deliveryTime: "20-30 mins",
     image: require("../images/restuarants/momo_mania.avif"),
     isVeg: false,
-    items: [
+    dishes: [
       {
         id: "801",
         name: "Veg Momos",
@@ -230,7 +244,7 @@ const Restaurants: Restaurant[] = [
     discount: "Free Dessert on ₹500+",
     image: require("../images/restuarants/sweet_tooth.avif"),
     isVeg: true,
-    items: [
+    dishes: [
       {
         id: "901",
         name: "Rasgulla",
@@ -255,7 +269,7 @@ const Restaurants: Restaurant[] = [
     deliveryTime: "20-30 mins",
     image: require("../images/restuarants/healthy_bowl.avif"),
     isVeg: true,
-    items: [
+    dishes: [
       {
         id: "1001",
         name: "Quinoa Salad",
