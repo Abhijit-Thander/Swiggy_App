@@ -11,6 +11,7 @@ export type Restaurant = {
     id: string;
     name: string;
     description: string;
+    image: any;
     price: number;
     isVeg: boolean;
   }[];
@@ -31,6 +32,7 @@ const Restaurants: Restaurant[] = [
         id: "101",
         name: "Margherita Pizza",
         description: "Classic cheese and tomato pizza",
+        image: require("../images/DishImg/mergarita.jpeg"),
         price: 249,
         isVeg: true,
       },
@@ -38,6 +40,8 @@ const Restaurants: Restaurant[] = [
         id: "102",
         name: "Pepperoni Pizza",
         description: "Spicy pepperoni with mozzarella",
+        image: require("../images/DishImg/mergarita.jpeg"),
+
         price: 349,
         isVeg: false,
       },
@@ -45,6 +49,8 @@ const Restaurants: Restaurant[] = [
         id: "103",
         name: "Veggie Pizza",
         description: "Fresh veggies and cheese",
+        image: require("../images/DishImg/mergarita.jpeg"),
+
         price: 299,
         isVeg: true,
       },
@@ -52,6 +58,7 @@ const Restaurants: Restaurant[] = [
         id: "104",
         name: "Chicken Pizza",
         description: "Crispy chicken and cheese",
+        image: require("../images/DishImg/mergarita.jpeg"),
         price: 399,
         isVeg: false,
       },
@@ -69,6 +76,8 @@ const Restaurants: Restaurant[] = [
       {
         id: "201",
         name: "Veggie Burger",
+        image: require("../images/DishImg/mergarita.jpeg"),
+
         description: "Grilled veg patty with fresh veggies",
         price: 149,
         isVeg: true,
@@ -77,6 +86,8 @@ const Restaurants: Restaurant[] = [
         id: "202",
         name: "Chicken Burger",
         description: "Crispy chicken patty with mayo",
+        image: require("../images/DishImg/mergarita.jpeg"),
+
         price: 199,
         isVeg: false,
       },
@@ -96,6 +107,8 @@ const Restaurants: Restaurant[] = [
         id: "301",
         name: "Chicken Biryani",
         description: "Aromatic rice with tender chicken",
+        image: require("../images/DishImg/mergarita.jpeg"),
+
         price: 299,
         isVeg: false,
       },
@@ -103,6 +116,8 @@ const Restaurants: Restaurant[] = [
         id: "302",
         name: "Veg Biryani",
         description: "Delicious rice cooked with fresh vegetables",
+        image: require("../images/DishImg/mergarita.jpeg"),
+
         price: 199,
         isVeg: true,
       },
@@ -121,6 +136,8 @@ const Restaurants: Restaurant[] = [
         id: "401",
         name: "Veg Hakka Noodles",
         description: "Stir fried noodles with vegetables",
+        image: require("../images/DishImg/mergarita.jpeg"),
+
         price: 159,
         isVeg: true,
       },
@@ -128,6 +145,8 @@ const Restaurants: Restaurant[] = [
         id: "402",
         name: "Chicken Manchurian",
         description: "Spicy chicken balls in gravy",
+        image: require("../images/DishImg/mergarita.jpeg"),
+
         price: 249,
         isVeg: false,
       },
@@ -147,6 +166,8 @@ const Restaurants: Restaurant[] = [
         id: "501",
         name: "Masala Dosa",
         description: "Crispy dosa with spiced potato filling",
+        image: require("../images/DishImg/mergarita.jpeg"),
+
         price: 120,
         isVeg: true,
       },
@@ -154,6 +175,8 @@ const Restaurants: Restaurant[] = [
         id: "502",
         name: "Idli Sambar",
         description: "Steamed idlis with hot sambar",
+        image: require("../images/DishImg/mergarita.jpeg"),
+
         price: 99,
         isVeg: true,
       },
@@ -172,6 +195,8 @@ const Restaurants: Restaurant[] = [
         id: "601",
         name: "Chicken Seekh Kebab",
         description: "Juicy minced chicken skewers",
+        image: require("../images/DishImg/mergarita.jpeg"),
+
         price: 220,
         isVeg: false,
       },
@@ -179,6 +204,8 @@ const Restaurants: Restaurant[] = [
         id: "602",
         name: "Paneer Tikka",
         description: "Grilled paneer cubes with spices",
+        image: require("../images/DishImg/mergarita.jpeg"),
+
         price: 180,
         isVeg: true,
       },
@@ -198,6 +225,8 @@ const Restaurants: Restaurant[] = [
         id: "701",
         name: "Egg Chicken Roll",
         description: "Paratha wrap with egg & chicken",
+        image: require("../images/DishImg/mergarita.jpeg"),
+
         price: 120,
         isVeg: false,
       },
@@ -205,6 +234,8 @@ const Restaurants: Restaurant[] = [
         id: "702",
         name: "Paneer Roll",
         description: "Paratha wrap with paneer stuffing",
+        image: require("../images/DishImg/mergarita.jpeg"),
+
         price: 100,
         isVeg: true,
       },
@@ -223,6 +254,8 @@ const Restaurants: Restaurant[] = [
         id: "801",
         name: "Veg Momos",
         description: "Steamed dumplings with vegetable filling",
+        image: require("../images/DishImg/mergarita.jpeg"),
+
         price: 90,
         isVeg: true,
       },
@@ -230,6 +263,8 @@ const Restaurants: Restaurant[] = [
         id: "802",
         name: "Chicken Momos",
         description: "Steamed dumplings with chicken filling",
+        image: require("../images/DishImg/mergarita.jpeg"),
+
         price: 110,
         isVeg: false,
       },
@@ -249,6 +284,8 @@ const Restaurants: Restaurant[] = [
         id: "901",
         name: "Rasgulla",
         description: "Traditional Bengali sweet",
+        image: require("../images/DishImg/mergarita.jpeg"),
+
         price: 20,
         isVeg: true,
       },
@@ -256,6 +293,8 @@ const Restaurants: Restaurant[] = [
         id: "902",
         name: "Gulab Jamun",
         description: "Soft fried balls soaked in syrup",
+        image: require("../images/DishImg/mergarita.jpeg"),
+
         price: 30,
         isVeg: true,
       },
@@ -274,6 +313,8 @@ const Restaurants: Restaurant[] = [
         id: "1001",
         name: "Quinoa Salad",
         description: "Protein-packed quinoa with veggies",
+        image: require("../images/DishImg/mergarita.jpeg"),
+
         price: 250,
         isVeg: true,
       },
@@ -281,6 +322,8 @@ const Restaurants: Restaurant[] = [
         id: "1002",
         name: "Grilled Chicken Salad",
         description: "Grilled chicken breast with greens",
+        image: require("../images/DishImg/mergarita.jpeg"),
+
         price: 280,
         isVeg: false,
       },

@@ -114,6 +114,7 @@ const RestuarentDetails = () => {
               <View style={styles.dishImageContainer}>
                 <Image
                   // source={require("@assets/images/Swiggy/food-placeholder.png")}
+                  source={dish.image}
                   style={styles.dishImage}
                 />
                 <Pressable style={styles.addButton}>
