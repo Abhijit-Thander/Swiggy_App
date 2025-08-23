@@ -1,12 +1,11 @@
 import Categories from "@/assets/data/Categories";
-
 import Restaurants from "@/assets/data/Restuarants";
 import RestaurantCard from "@/src/components/RestuarantCard";
 import SearchBar from "@components/SearchBar";
 import Entypo from "@expo/vector-icons/Entypo";
 import Feather from "@expo/vector-icons/Feather";
-import { ResizeMode, Video } from "expo-av";
 import { LinearGradient } from "expo-linear-gradient";
+import { useVideoPlayer, VideoView } from "expo-video";
 import React, { useRef } from "react";
 import {
   Animated,
@@ -27,6 +26,14 @@ const VIDEO_HEIGHT = 140;
 const HomeScreen = () => {
   const insets = useSafeAreaInsets();
   const scrollY = useRef(new Animated.Value(0)).current;
+
+  const player = useVideoPlayer(
+    require("@/assets/images/Swiggy/advertist.mp4"),
+    (player) => {
+      player.play();
+      player.loop = true;
+    }
+  );
 
   // Animate header + video
   const headerTranslateY = scrollY.interpolate({
@@ -107,19 +114,11 @@ const HomeScreen = () => {
 
         <SearchBar />
         {/* Video */}
-        <View style={styles.videocontainer}>
-          <Video
-            source={require("@assets  /images/Swiggy/advertist.mp4")}
-            style={styles.video}
-            resizeMode={ResizeMode.CONTAIN}
-            isLooping
-            shouldPlay
-          />
-        </View>
+
+        <VideoView player={player} style={styles.videocontainer} />
       </Animated.View>
 
       {/* Restaurants List */}
-
       <Animated.FlatList
         data={Restaurants}
         keyExtractor={(item) => item.id}
@@ -216,6 +215,7 @@ const styles = StyleSheet.create({
   },
   videocontainer: {
     height: VIDEO_HEIGHT,
+    width: "100%",
     justifyContent: "center",
     alignItems: "center",
     marginVertical: 10,
