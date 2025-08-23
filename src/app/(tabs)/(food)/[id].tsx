@@ -1,6 +1,7 @@
 import Restaurants from "@/assets/data/Restuarants";
 import SearchBar from "@/src/components/SearchBar";
 import AntDesign from "@expo/vector-icons/AntDesign";
+import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import { router, Stack, useLocalSearchParams } from "expo-router";
 import React from "react";
 import {
@@ -39,9 +40,18 @@ const RestuarentDetails = () => {
             color="#fff"
             onPress={() => router.back()}
           />
-          <Pressable style={styles.groupOrder}>
-            <Text style={styles.groupOrderText}>GROUP ORDER</Text>
-          </Pressable>
+          <View style={styles.topBarRight}>
+            <Pressable style={styles.groupOrder}>
+              <Text style={styles.groupOrderText}>GROUP ORDER</Text>
+            </Pressable>
+            <Pressable>
+              <MaterialCommunityIcons
+                name="dots-vertical"
+                size={24}
+                color="#fff"
+              />
+            </Pressable>
+          </View>
         </View>
 
         {/* Restaurant Info */}
@@ -97,15 +107,19 @@ const RestuarentDetails = () => {
               <View style={styles.dishInfo}>
                 <Text style={styles.dishName}>{dish.name}</Text>
                 <Text style={styles.dishPrice}>₹{dish.price}</Text>
-                <Text
-                  style={styles.dishDescription}
-                  lineBreakMode="tail"
-                  numberOfLines={2}
-                >
+                <Text numberOfLines={2} style={styles.dishDescription}>
                   {dish.description}
                 </Text>
               </View>
-              <Image style={styles.dishImage} />
+              <View style={styles.dishImageContainer}>
+                <Image
+                  // source={require("@assets/images/Swiggy/food-placeholder.png")}
+                  style={styles.dishImage}
+                />
+                <Pressable style={styles.addButton}>
+                  <Text style={styles.addButtonText}>ADD</Text>
+                </Pressable>
+              </View>
             </View>
           ))}
         </ScrollView>
@@ -130,6 +144,11 @@ const styles = StyleSheet.create({
     paddingTop: 30,
     marginBottom: 20,
     justifyContent: "space-between",
+  },
+  topBarRight: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 8,
   },
   groupOrder: {
     borderWidth: 0.5,
@@ -243,33 +262,56 @@ const styles = StyleSheet.create({
   },
   dish: {
     flexDirection: "row",
-    alignItems: "center",
-    marginBottom: 20,
     justifyContent: "space-between",
+    marginBottom: 16,
+    backgroundColor: "#fff",
+    // borderRadius: 12,
+    borderBottomWidth: 0.5,
+    borderColor: "#e2e2e2",
+    padding: 12,
+    shadowColor: "#000",
+    shadowOpacity: 0.05,
+    shadowOffset: { width: 0, height: 2 },
+    shadowRadius: 6,
+  },
+  dishImageContainer: {
+    width: 90,
+    alignItems: "center",
+    gap: 6,
   },
   dishImage: {
     width: 90,
     height: 90,
     borderRadius: 12,
-    overflow: "hidden",
-
-    backgroundColor: "#ccc",
+    backgroundColor: "#eee",
   },
-  dishInfo: {
-    marginLeft: 10,
-  },
+  dishInfo: { flex: 1, marginRight: 10 },
   dishName: {
     fontSize: 16,
-    fontWeight: "bold",
+    fontWeight: "600",
   },
   dishPrice: {
     fontSize: 14,
-    color: "#555",
+    color: "#444",
     marginTop: 4,
     fontWeight: "600",
   },
   dishDescription: {
     fontSize: 12,
-    color: "#555",
+    color: "#777",
+    marginTop: 2,
+  },
+  addButton: {
+    borderWidth: 1,
+    borderColor: "#2ecc71",
+    paddingVertical: 6,
+    borderRadius: 6,
+    width: "100%",
+  },
+  addButtonText: {
+    color: "#2ecc71",
+    fontSize: 14,
+    fontWeight: "700",
+    textAlign: "center",
   },
 });

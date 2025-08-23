@@ -2,7 +2,7 @@ import AntDesign from "@expo/vector-icons/AntDesign";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import { router, Stack } from "expo-router";
 import React, { useState } from "react";
-import { Pressable, StyleSheet, Text, View } from "react-native";
+import { Pressable, StatusBar, StyleSheet, Text, View } from "react-native";
 import { Menu, Provider } from "react-native-paper"; // 👈 for popover menu
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
@@ -84,6 +84,7 @@ const Profile = () => {
           <Text style={styles.phone}>+91 9883121012</Text>
         </View>
       </View>
+      <StatusBar barStyle="dark-content" />
     </Provider>
   );
 };

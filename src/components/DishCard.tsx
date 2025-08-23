@@ -1,4 +1,4 @@
-import { Image, StyleSheet, Text, View } from "react-native";
+import { Image, Pressable, StyleSheet, Text, View } from "react-native";
 
 const DishCard = ({ dish }: { dish: any }) => (
   <View style={styles.dish}>
@@ -14,6 +14,9 @@ const DishCard = ({ dish }: { dish: any }) => (
       </Text>
     </View>
     <Image style={styles.dishImage} />
+    <Pressable style={styles.addButton}>
+      <Text style={styles.addButtonText}>Add</Text>
+    </Pressable>
   </View>
 );
 
@@ -57,8 +60,19 @@ const styles = StyleSheet.create({
   },
   dishImage: {
     width: 90,
-    height: 90,
+    // height: 90,
     borderRadius: 12,
     backgroundColor: "#f0f0f0", // placeholder background
+  },
+  addButton: {
+    backgroundColor: "#14CF93", // ✅ highlight add button
+    paddingVertical: 8,
+    paddingHorizontal: 16,
+    borderRadius: 20,
+  },
+  addButtonText: {
+    color: "#fff",
+    fontSize: 12,
+    fontWeight: "600",
   },
 });
