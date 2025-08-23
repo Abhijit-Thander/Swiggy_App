@@ -19,9 +19,9 @@ const RestuarentDetails = () => {
 
   if (!restaurant) {
     return (
-      <View>
-        <Text>Restaurant not found</Text>
-      </View>
+      // <View style={styles.center}>
+      <Text>Restaurant not found</Text>
+      // </View>
     );
   }
 
@@ -73,7 +73,7 @@ const RestuarentDetails = () => {
           {restaurant.discount && (
             <View style={styles.discountBox}>
               <Image
-                source={require("@assets  /images/Swiggy/discount.avif")} // 👈 put your discount image here
+                source={require("@assets/images/Swiggy/discount.avif")} // 👈 put your discount image here
                 style={styles.discountImage}
                 resizeMode="contain"
               />
@@ -219,7 +219,7 @@ const styles = StyleSheet.create({
   bottomHalf: {
     width: "100%",
     height: "58%",
-    padding: 14,
+    paddingHorizontal: 14,
     flex: 1,
     backgroundColor: "#ffffff",
   },
@@ -271,6 +271,5 @@ const styles = StyleSheet.create({
   dishDescription: {
     fontSize: 12,
     color: "#555",
-    width: "90%",
   },
 });

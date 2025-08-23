@@ -6,7 +6,7 @@ const reorder = () => {
     <View style={styles.container}>
       <Image
         style={{ width: 200, height: 200 }}
-        source={require("@assets  /images/Swiggy/blank_order.jpg")}
+        source={require("@assets/images/Swiggy/blank_order.jpg")}
       />
       <Text style={styles.title}>Uh Oh! You don't have any food orders</Text>
       <Text style={styles.subtitle}>Order now to avail great discounts!</Text>

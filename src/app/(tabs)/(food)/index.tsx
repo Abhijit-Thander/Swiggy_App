@@ -1,10 +1,8 @@
 import Categories from "@/assets/data/Categories";
 import Restaurants from "@/assets/data/Restuarants";
+import CustomHeader from "@/src/components/Header";
 import RestaurantCard from "@/src/components/RestuarantCard";
 import SearchBar from "@components/SearchBar";
-import Entypo from "@expo/vector-icons/Entypo";
-import Feather from "@expo/vector-icons/Feather";
-import { LinearGradient } from "expo-linear-gradient";
 import { useVideoPlayer, VideoView } from "expo-video";
 import React, { useRef } from "react";
 import {
@@ -32,6 +30,7 @@ const HomeScreen = () => {
     (player) => {
       player.play();
       player.loop = true;
+      player.muted = true;
     }
   );
 
@@ -79,43 +78,19 @@ const HomeScreen = () => {
         ]}
       >
         {/* Header */}
-        <View style={styles.header}>
-          {/* Left Section */}
-          <View>
-            <View style={styles.homeRow}>
-              <Entypo name="home" size={24} color="#ff5200" />
-              <Text style={styles.homeText}>Home</Text>
-              <Entypo name="chevron-small-down" size={24} color="black" />
-            </View>
-            <Text
-              style={[styles.locationText, { width: 170 }]}
-              numberOfLines={1}
-              ellipsizeMode="tail"
-            >
-              Food Junction Cafe, Natungram, Magra, Hansghara
-            </Text>
-          </View>
-
-          {/* Middle Buy */}
-          <LinearGradient
-            colors={["#ff9500", "#f665e5"]}
-            start={{ x: 0, y: 0 }}
-            end={{ x: 1, y: 1 }}
-            style={styles.buyContainer}
-          >
-            <Text style={styles.buyText}>one</Text>
-          </LinearGradient>
-
-          {/* Profile */}
-          <View style={styles.profileContainer}>
-            <Feather name="user" size={22} color="#fff" />
-          </View>
-        </View>
+        <CustomHeader />
 
         <SearchBar />
         {/* Video */}
 
-        <VideoView player={player} style={styles.videocontainer} />
+        <View style={styles.videocontainer}>
+          <VideoView
+            player={player}
+            style={styles.video}
+            contentFit="contain"
+            allowsFullscreen={false}
+          />
+        </View>
       </Animated.View>
 
       {/* Restaurants List */}
@@ -224,6 +199,7 @@ const styles = StyleSheet.create({
   video: {
     width: "100%",
     height: "100%",
+    resizeMode: "cover",
   },
   title: {
     fontSize: 16,

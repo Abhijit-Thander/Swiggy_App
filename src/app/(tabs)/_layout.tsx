@@ -48,11 +48,11 @@ export default function RootLayout() {
         }}
       />
       <Tabs.Screen
-        name="reorder"
+        name="cart"
         options={{
-          title: "Reorder",
+          title: "Cart",
           tabBarIcon: ({ color }) => (
-            <Ionicons name="reorder-three" size={22} color={color} />
+            <Ionicons name="cart-outline" size={24} color={color} />
           ),
         }}
       />
