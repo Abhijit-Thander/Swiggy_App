@@ -1,5 +1,6 @@
 import Restaurants from "@/assets/data/Restuarants";
 import SearchBar from "@/src/components/SearchBar";
+import { useCart } from "@/src/provider/CartProvider";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import { router, Stack, useLocalSearchParams } from "expo-router";
@@ -11,6 +12,7 @@ import {
   StatusBar,
   StyleSheet,
   Text,
+  TouchableOpacity,
   View,
 } from "react-native";
 
@@ -18,17 +20,18 @@ const RestuarentDetails = () => {
   const { id } = useLocalSearchParams();
   const restaurant = Restaurants.find((r) => r.id === id);
 
-  if (!restaurant) {
-    return (
-      // <View style={styles.center}>
-      <Text>Restaurant not found</Text>
-      // </View>
-    );
-  }
+  const { addCart } = useCart();
+
+  const handleAddToCart = () => {
+    if (!restaurant) {
+      return;
+    }
+    addCart(restaurant);
+  };
 
   return (
     <View style={styles.container}>
-      <Stack.Screen options={{ title: restaurant.name }} />
+      <Stack.Screen options={{ title: restaurant?.name }} />
 
       {/* Top Section */}
       <View style={styles.topHalf}>
@@ -56,23 +59,23 @@ const RestuarentDetails = () => {
 
         {/* Restaurant Info */}
         <View style={styles.innerContent}>
-          {restaurant.isVeg ? (
+          {restaurant?.isVeg ? (
             <Text style={styles.isVeg}>Pure Veg 🟢 </Text>
           ) : (
             ""
           )}
           {/* Restaurant Name */}
-          <Text style={styles.name}>{restaurant.name}</Text>
+          <Text style={styles.name}>{restaurant?.name}</Text>
 
           {/* Delivery time + location | Rating */}
           <View style={styles.rowBetween}>
             <View style={styles.row}>
-              <Text style={styles.subText}>{restaurant.deliveryTime} • </Text>
-              <Text style={styles.subText}>{restaurant.location}</Text>
+              <Text style={styles.subText}>{restaurant?.deliveryTime} • </Text>
+              <Text style={styles.subText}>{restaurant?.location}</Text>
             </View>
 
             <View style={styles.ratingContainer}>
-              <Text style={styles.rating}>{restaurant.rating} ★</Text>
+              <Text style={styles.rating}>{restaurant?.rating} ★</Text>
             </View>
           </View>
 
@@ -80,7 +83,7 @@ const RestuarentDetails = () => {
           <View style={styles.line} />
 
           {/* Discount Section */}
-          {restaurant.discount && (
+          {restaurant?.discount && (
             <View style={styles.discountBox}>
               <Image
                 source={require("@assets/images/Swiggy/discount.avif")} // 👈 put your discount image here
@@ -102,7 +105,7 @@ const RestuarentDetails = () => {
 
         {/* Dishes */}
         <ScrollView style={styles.dishes} showsVerticalScrollIndicator={false}>
-          {restaurant.dishes.map((dish) => (
+          {restaurant?.dishes.map((dish) => (
             <View key={dish.id} style={styles.dish}>
               <View style={styles.dishInfo}>
                 <Text style={styles.dishName}>{dish.name}</Text>
@@ -112,14 +115,14 @@ const RestuarentDetails = () => {
                 </Text>
               </View>
               <View style={styles.dishImageContainer}>
-                <Image
-                  // source={require("@assets/images/Swiggy/food-placeholder.png")}
-                  source={dish.image}
-                  style={styles.dishImage}
-                />
-                <Pressable style={styles.addButton}>
+                <Image source={dish.image} style={styles.dishImage} />
+                <TouchableOpacity
+                  activeOpacity={0.2}
+                  style={styles.addButton}
+                  onPress={handleAddToCart}
+                >
                   <Text style={styles.addButtonText}>ADD</Text>
-                </Pressable>
+                </TouchableOpacity>
               </View>
             </View>
           ))}

@@ -70,6 +70,7 @@ const Restaurants: Restaurant[] = [
     location: "Salt Lake, Kolkata",
     rating: 4.2,
     deliveryTime: "25-35 mins",
+    discount: "8% OFF",
     image: require("../images/restuarants/Burger_hub.avif"),
     isVeg: false,
     dishes: [
@@ -129,6 +130,7 @@ const Restaurants: Restaurant[] = [
     location: "Sealdah, Kolkata",
     rating: 4.3,
     deliveryTime: "20-30 mins",
+    discount: "Free 1 Coke",
     image: require("../images/restuarants/chinese.avif"),
     isVeg: false,
     dishes: [
@@ -159,6 +161,7 @@ const Restaurants: Restaurant[] = [
     rating: 4.6,
     deliveryTime: "25-35 mins",
     discount: "20% OFF",
+
     image: require("../images/restuarants/southindian.avif"),
     isVeg: true,
     dishes: [
@@ -188,6 +191,7 @@ const Restaurants: Restaurant[] = [
     location: "Gariahat, Kolkata",
     rating: 4.4,
     deliveryTime: "30-40 mins",
+    discount: "Free Delevery",
     image: require("../images/restuarants/kabab.avif"),
     isVeg: false,
     dishes: [

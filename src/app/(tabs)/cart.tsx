@@ -1,10 +1,13 @@
+import { useCart } from "@/src/provider/CartProvider";
 import React from "react";
-import { Image, Pressable, StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 
-const reorder = () => {
+const CartScreen = () => {
+  const { items } = useCart();
   return (
     <View style={styles.container}>
-      <Image
+      <Text>Items lenght is :{items.length}</Text>
+      {/* <Image
         style={{ width: 200, height: 200 }}
         source={require("@assets/images/Swiggy/blank_order.jpg")}
       />
@@ -12,12 +15,12 @@ const reorder = () => {
       <Text style={styles.subtitle}>Order now to avail great discounts!</Text>
       <Pressable style={styles.button}>
         <Text style={styles.buttonTxt}>Order Now</Text>
-      </Pressable>
+      </Pressable> */}
     </View>
   );
 };
 
-export default reorder;
+export default CartScreen;
 
 const styles = StyleSheet.create({
   container: {
