@@ -2,7 +2,7 @@
 import Entypo from "@expo/vector-icons/Entypo";
 import Feather from "@expo/vector-icons/Feather";
 import { LinearGradient } from "expo-linear-gradient";
-import { Link } from "expo-router";
+import { Link, router } from "expo-router";
 import { Pressable, StyleSheet, Text, View } from "react-native";
 
 export default function CustomHeader() {
@@ -13,7 +13,12 @@ export default function CustomHeader() {
         <View style={styles.homeRow}>
           <Entypo name="home" size={24} color="#ff5200" />
           <Text style={styles.homeText}>Home</Text>
-          <Entypo name="chevron-small-down" size={24} color="black" />
+          <Entypo
+            name="chevron-small-down"
+            size={24}
+            color="black"
+            onPress={() => router.push("/screens/FetchLoc")}
+          />
         </View>
         <Text
           style={[styles.locationText, { width: 170 }]}
