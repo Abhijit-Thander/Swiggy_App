@@ -20,13 +20,12 @@ const RestuarentDetails = () => {
   const { id } = useLocalSearchParams();
   const restaurant = Restaurants.find((r) => r.id === id);
 
-  const { addCart } = useCart();
+  const { addToCart } = useCart();
 
-  const handleAddToCart = () => {
-    if (!restaurant) {
-      return;
-    }
-    addCart(restaurant);
+  const handleAddToCart = (dishId: string) => {
+    if (!restaurant) return;
+    addToCart(restaurant, dishId);
+    // router.push("/cart");
   };
 
   return (
@@ -119,7 +118,7 @@ const RestuarentDetails = () => {
                 <TouchableOpacity
                   activeOpacity={0.2}
                   style={styles.addButton}
-                  onPress={handleAddToCart}
+                  onPress={() => handleAddToCart(dish.id)}
                 >
                   <Text style={styles.addButtonText}>ADD</Text>
                 </TouchableOpacity>

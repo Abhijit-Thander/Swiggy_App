@@ -1,21 +1,4 @@
-export type Restaurant = {
-  id: string;
-  name: string;
-  location: string;
-  rating: number;
-  deliveryTime: string;
-  discount?: string; // optional
-  image: any;
-  isVeg: boolean;
-  dishes: {
-    id: string;
-    name: string;
-    description: string;
-    image: any;
-    price: number;
-    isVeg: boolean;
-  }[];
-};
+import { Restaurant } from "../../src/types";
 
 const Restaurants: Restaurant[] = [
   {

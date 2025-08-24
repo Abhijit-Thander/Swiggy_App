@@ -1,33 +1,36 @@
-import { Restaurant } from "@/assets/data/Restuarants";
 import { createContext, PropsWithChildren, useContext, useState } from "react";
+import { CartItem, Restaurant } from "../types";
 
 type CartContextType = {
-  items: Restaurant[];
-  addCart: (restaurant: Restaurant) => void;
+  items: CartItem[];
+  addToCart: (restaurant: Restaurant, dishId: string) => void;
 };
 
 const CartContext = createContext<CartContextType>({
   items: [],
-  addCart: () => {},
+  addToCart: () => {},
 });
 
 export default function CartProvider({ children }: PropsWithChildren) {
-  const [items, setItems] = useState<Restaurant[]>([]);
+  const [items, setItems] = useState<CartItem[]>([]);
 
-  const addCart = (restaurant: Restaurant) => {
-    const newCartItem: any = {
-      id: "1",
-      restaurant,
+  const addToCart = (restaurant: Restaurant, dishId: string) => {
+    const dish = restaurant.dishes.find((d) => d.id === dishId);
+    if (!dish) return;
+
+    const newCartItem: CartItem = {
+      dishId: dish.id,
+      name: dish.name,
+      price: dish.price,
+      image: dish.image,
       quantity: 1,
-      dishes: restaurant.dishes,
+      restaurantId: restaurant.id,
     };
-
     setItems([newCartItem, ...items]);
   };
 
-  console.log(items);
   return (
-    <CartContext.Provider value={{ items, addCart }}>
+    <CartContext.Provider value={{ items, addToCart }}>
       {children}
     </CartContext.Provider>
   );

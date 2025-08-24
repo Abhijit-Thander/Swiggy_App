@@ -25,6 +25,7 @@ export default function RootLayout() {
           headerShown: false,
         }}
       />
+
       <Tabs.Screen
         name="dineout"
         options={{
@@ -51,6 +52,8 @@ export default function RootLayout() {
         name="cart"
         options={{
           title: "Cart",
+          headerShown: false,
+          tabBarStyle: { display: "none" },
           tabBarIcon: ({ color }) => (
             <Ionicons name="cart-outline" size={24} color={color} />
           ),
