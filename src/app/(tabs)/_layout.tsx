@@ -1,7 +1,6 @@
 import Entypo from "@expo/vector-icons/Entypo";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
-
 import { Tabs } from "expo-router";
 
 export default function RootLayout() {
@@ -16,7 +15,7 @@ export default function RootLayout() {
       }}
     >
       <Tabs.Screen
-        name="(food)"
+        name="index"
         options={{
           title: "Food",
           tabBarIcon: ({ color }) => (
@@ -26,6 +25,14 @@ export default function RootLayout() {
         }}
       />
 
+      <Tabs.Screen
+        name="[id]"
+        options={{
+          headerShown: false,
+          href: null,
+          tabBarStyle: { display: "none" },
+        }}
+      />
       <Tabs.Screen
         name="dineout"
         options={{

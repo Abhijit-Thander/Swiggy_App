@@ -15,7 +15,7 @@ import {
 } from "react-native";
 
 const CartScreen = () => {
-  const { items } = useCart();
+  const { items, totalPrice } = useCart();
   const router = useRouter();
 
   if (items.length === 0) {
@@ -57,13 +57,14 @@ const CartScreen = () => {
       <FlatList
         data={items}
         renderItem={({ item }) => <CartListItem item={item} />}
+        keyExtractor={(item) => item.dishId}
         contentContainerStyle={{ gap: 12, paddingBottom: 100 }}
         showsVerticalScrollIndicator={false}
       />
 
       {/* Bottom Checkout Bar */}
       <View style={styles.bottomBar}>
-        <Text style={styles.totalText}>₹349</Text>
+        <Text style={styles.totalText}>₹ {totalPrice}.00</Text>
         <TouchableOpacity style={styles.payButton}>
           <Text style={styles.payButtonText}>Pay</Text>
         </TouchableOpacity>

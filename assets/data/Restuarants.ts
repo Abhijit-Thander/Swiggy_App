@@ -234,6 +234,7 @@ const Restaurants: Restaurant[] = [
     location: "Dumdum, Kolkata",
     rating: 4.0,
     deliveryTime: "20-30 mins",
+    discount: "10% OFF on First Order",
     image: require("../images/restuarants/momo_mania.avif"),
     isVeg: false,
     dishes: [
@@ -293,6 +294,7 @@ const Restaurants: Restaurant[] = [
     location: "Rajpur, Kolkata",
     rating: 4.5,
     deliveryTime: "20-30 mins",
+    discount: "Buy 2 Get 1 Free",
     image: require("../images/restuarants/healthy_bowl.avif"),
     isVeg: true,
     dishes: [

@@ -15,6 +15,7 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const RestuarentDetails = () => {
   const { id } = useLocalSearchParams();
@@ -25,11 +26,11 @@ const RestuarentDetails = () => {
   const handleAddToCart = (dishId: string) => {
     if (!restaurant) return;
     addToCart(restaurant, dishId);
-    // router.push("/cart");
+    router.push("/cart");
   };
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container} edges={["bottom"]}>
       <Stack.Screen options={{ title: restaurant?.name }} />
 
       {/* Top Section */}
@@ -129,7 +130,7 @@ const RestuarentDetails = () => {
       </View>
 
       <StatusBar barStyle="light-content" backgroundColor="#000000" />
-    </View>
+    </SafeAreaView>
   );
 };
 
@@ -139,6 +140,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "center",
+    backgroundColor: "#fff",
   },
   topBar: {
     width: "100%",
@@ -167,7 +169,7 @@ const styles = StyleSheet.create({
   },
   topHalf: {
     width: "100%",
-    height: "40%",
+    height: "36%",
     backgroundColor: "#000",
     borderBottomLeftRadius: 40,
     borderBottomRightRadius: 40,

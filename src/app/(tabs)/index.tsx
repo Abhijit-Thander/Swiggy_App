@@ -89,6 +89,7 @@ const HomeScreen = () => {
             style={styles.video}
             contentFit="contain"
             allowsFullscreen={false}
+            nativeControls={false}
           />
         </View>
       </Animated.View>

@@ -2,7 +2,7 @@ import { Stack } from "expo-router";
 import React from "react";
 import CartProvider from "../provider/CartProvider";
 
-const _layout = () => {
+const RootLayout = () => {
   return (
     <CartProvider>
       <Stack>
@@ -12,4 +12,4 @@ const _layout = () => {
   );
 };
 
-export default _layout;
+export default RootLayout;

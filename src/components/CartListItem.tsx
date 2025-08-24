@@ -1,7 +1,8 @@
 import React from "react";
 import { Image, Pressable, StyleSheet, Text, View } from "react-native";
-// import { useCart } from "../context/CartProvider";
+
 import Entypo from "@expo/vector-icons/Entypo";
+import { useCart } from "../provider/CartProvider";
 import { CartItem } from "../types";
 
 type Props = {
@@ -9,7 +10,7 @@ type Props = {
 };
 
 export default function CartListItem({ item }: Props) {
-  //   const { increaseQty, decreaseQty } = useCart();
+  const { increaseQty, decreaseQty } = useCart();
 
   return (
     <View style={styles.container}>
@@ -25,7 +26,7 @@ export default function CartListItem({ item }: Props) {
       <View style={styles.qtyContainer}>
         <Pressable
           style={styles.button}
-          //   onPress={() => decreaseQty(item.dishId)}
+          onPress={() => decreaseQty(item.dishId)}
         >
           <Entypo name="minus" size={20} color="green" />
         </Pressable>
@@ -34,7 +35,7 @@ export default function CartListItem({ item }: Props) {
 
         <Pressable
           style={styles.button}
-          //   onPress={() => increaseQty(item.dishId)}
+          onPress={() => increaseQty(item.dishId)}
         >
           <Entypo name="plus" size={20} color="green" />
         </Pressable>
